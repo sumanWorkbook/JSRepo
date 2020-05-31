@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NOTES APP</title>
+     </head>
+    <body>
+        <h1>Notes App</h1>
+        <h2>Take notes and never forget</h2>
+        <input  id="search-text" type="text" placeholder="filter notes">
+        <select id="filter-by">
+            <option value="byEdited">Sort by last Edited</option>
+            <option value="byCreated">Sort by Recently Created</option>
+            <option value="alphabetical">Sort Alphabetically</option>
+        </select>
+        <p class="note">This application was created by Suman Mondal</p>
+        <p class="note">Edited by -Suman</p>
+        <!-- Content divider -->
+        <div id="notes">
+
+        </div>
+        <button id="create-note">Create Note</button>
+        <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+        
+        <script src="notes-function.js"></script>
+        <script src="notes-app.js"></script>
+       
+    </body>
+</html>
