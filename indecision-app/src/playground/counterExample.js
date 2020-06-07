@@ -5,7 +5,7 @@ class Counter extends React.Component {
         this.handleMinusOne = this.handleMinusOne.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.state = {
-            count: 0
+            count: props.count
         };
 
     }
@@ -37,7 +37,6 @@ class Counter extends React.Component {
 
 
 
-
     render() {
         return (
             <div>
@@ -48,9 +47,32 @@ class Counter extends React.Component {
             </div>
         )
     }
+
+
+    componentDidMount() {
+        const countNumber = parseInt(localStorage.getItem('count'), 10);
+        if (!isNaN(countNumber)) {
+            this.setState(() => ({
+                count: countNumber
+            }))
+
+        }
+    }
+    componentDidUpdate(prevProp, prevState) {
+        if (prevState.count !== this.state.count) {
+            localStorage.setItem('count', this.state.count);
+        }
+    }
+    componentWillUnmount() {
+
+    }
 }
 
 
+
+Counter.defaultProps = {
+    count: 0
+}
 ReactDOM.render(<Counter />, document.querySelector('#app'))
 
 //Create three method : handleAddOne,handleMinusOne, handleReset
